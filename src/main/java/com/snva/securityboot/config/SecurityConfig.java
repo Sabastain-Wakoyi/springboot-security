@@ -25,11 +25,11 @@ public class SecurityConfig {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth
                 .inMemoryAuthentication()
-                .withUser("admin").password("{noop}").roles("ADMIN")
+                .withUser("admin").password("{noop}").roles("ADMIN","PREMIUM","USER")
                 .and()
                 .withUser("premium").password("{noop}").roles("PREMIUM")
                 .and()
-                .withUser("user").password("{noop}").roles("USER")
+                .withUser("user").password("{noop}").roles("USER");
 
     }
 
