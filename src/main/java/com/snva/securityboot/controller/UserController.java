@@ -1,4 +1,4 @@
-package com.snva.securityboot.Controller;
+package com.snva.securityboot.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

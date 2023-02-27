@@ -1,6 +1,7 @@
-package com.snva.securityboot.Config;
+package com.snva.securityboot.config;
 
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
 public class SecurityConfig {
@@ -18,9 +19,19 @@ public class SecurityConfig {
                 .and()
                 .csrf().disable();
 
+    }
 
 
-
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+        auth
+                .inMemoryAuthentication()
+                .withUser("admin").password("{noop}").roles("ADMIN")
+                .and()
+                .withUser("premium").password("{noop}").roles("PREMIUM")
+                .and()
+                .withUser("user").password("{noop}").roles("USER")
 
     }
+
+
 }
